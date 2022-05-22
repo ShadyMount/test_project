@@ -1,0 +1,20 @@
+  .Input {
+    border: 1px solid black;
+    border-radius: 8px;
+    outline: none;
+    padding: 0 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: white;
+  transition: background 0.5s ease;
+
+    color: black;
+  
+    &--dark {
+      color: white;
+      border: 1px solid white;
+      background-color: black;
+    }
+  }
+ 
