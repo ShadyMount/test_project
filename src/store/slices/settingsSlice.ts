@@ -28,6 +28,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
       setCurrentPage(state, action: PayloadAction<number>){
         state.currentPage = action.payload
       },
+      setIsDarkTheme(state, action: PayloadAction<boolean>){
+        state.isDarkTheme = action.payload
+      },
       setPagesAmount(state, action: PayloadAction<number>){
         state.pagesAmount = Math.ceil( action.payload / state.pageSize)
       },

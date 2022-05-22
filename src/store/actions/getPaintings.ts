@@ -13,6 +13,9 @@ export const getPaintings = ({ q, authorId, created_gte, created_lte, locationId
             })
             dispatch(paintingsSlice.actions.setPaintingsLoadingSuccess(data))
             dispatch(settingsSlice.actions.setPagesAmount(Number(totalCounts)))
+            if(Math.ceil(Number(totalCounts) / Number(_limit)) < Number(_page)){
+                dispatch(settingsSlice.actions.setCurrentPage(1))
+            }
         } catch ({ message }) {
             dispatch(paintingsSlice.actions.setError(message))
         }

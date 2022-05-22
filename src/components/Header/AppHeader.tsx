@@ -4,7 +4,7 @@ import { ReactComponent as ThemeSwitcherDark } from './ThemeSwitcherDark.svg';
 import { ReactComponent as ThemeSwitcherLight } from './ThemeSwitcherLight.svg';
 
 export interface HeaderProps {
-  theme: string,
+  theme: boolean,
   themeToggler: () => void
 
 }
@@ -19,7 +19,7 @@ const AppHeader = ({ theme, themeToggler }: HeaderProps) => {
         </div>
         <div className="theme_switcher">
           {
-            theme === 'dark'
+            theme
               ? <ThemeSwitcherLight onClick={themeToggler} />
               : <ThemeSwitcherDark onClick={themeToggler} />
           }

@@ -9,7 +9,7 @@ export interface PaginatorProps {
 }
 
 const Paginator = ({ theme }: PaginatorProps) => {
-  const { currentPage, pagesAmount } = useAppSelector(state => state.paintingsReducer)
+  const { currentPage, pagesAmount } = useAppSelector(state => state.settingsReducer)
   const dispatch = useAppDispatch()
 
 

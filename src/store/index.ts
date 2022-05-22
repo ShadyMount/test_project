@@ -16,11 +16,9 @@ export const setupStore = () => {
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
-        save({
-          states: ["settingsReducer.currentPage", "settingsReducer.pagesAmount"]
-        })
+        save({ states: ["settingsReducer"] })
       ),
-    preloadedState: load()
+    preloadedState: load({ states: ["settingsReducer"] })
 
   })
 }
