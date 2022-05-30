@@ -36,9 +36,10 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
 
   const [isRangeClosed, setIsRangeClosed] = useState(true);
   const [isFiltersChanged, setIsFiltersChanged] = useState(false);
+  const [cp, setCp] = useState(currentPage);
 
   const getData = useCallback(() => {
-    if (isRangeClosed && isFiltersChanged) {
+    if ((isRangeClosed && isFiltersChanged) || cp !== currentPage) {
       dispatch(getPaintings({
         q: name,
         authorId: author?.id,
@@ -49,14 +50,16 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
         _limit: pageSize,
       }));
       setIsFiltersChanged(false);
+      setCp(currentPage);
     }
   }, [dispatch, name, author,
     location, createdFrom, createdBefore,
-    isRangeClosed, currentPage, pageSize, isFiltersChanged]);
+    isRangeClosed, currentPage, pageSize, isFiltersChanged, cp]);
 
   const onChangeNameHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.value !== name) {
       dispatch(setName(e.target.value));
+      setIsFiltersChanged(true);
     }
   };
 
