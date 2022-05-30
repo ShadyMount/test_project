@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a780eafc.css",
+    "main.js": "/static/js/main.4e17af3b.js",
+    "static/media/ThemeSwitcherDark.svg": "/static/media/ThemeSwitcherDark.403f581a5acb220ed1371178ff780034.svg",
+    "static/media/ThemeSwitcherLight.svg": "/static/media/ThemeSwitcherLight.7efac3cbec09ed1764a502709e1ae415.svg",
+    "static/media/Logo.svg": "/static/media/Logo.e019148907a2c5ebd43ea31cab238e1e.svg",
+    "static/media/cross.svg": "/static/media/cross.f7af1d3395b4be55c5d3d1e8d6514655.svg",
+    "index.html": "/index.html",
+    "static/media/doubleArrowL.svg": "/static/media/doubleArrowL.356d88d77e234d1c61e46edf83e88556.svg",
+    "static/media/doubleArrowR.svg": "/static/media/doubleArrowR.bc468006e53de7fb0ad17631b0415f79.svg",
+    "static/media/arrowL.svg": "/static/media/arrowL.cd23a3815f9e419980d81ff394edaac6.svg",
+    "static/media/arrowR.svg": "/static/media/arrowR.15a2398ae98f5be784df280a707b6d3b.svg",
+    "static/media/selectArrow.svg": "/static/media/selectArrow.e857798522b0dfc8f3430ad40052fcaf.svg",
+    "main.a780eafc.css.map": "/static/css/main.a780eafc.css.map",
+    "main.4e17af3b.js.map": "/static/js/main.4e17af3b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a780eafc.css",
+    "static/js/main.4e17af3b.js"
+  ]
+}
