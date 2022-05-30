@@ -37,7 +37,7 @@ const App: FC = () => {
     <div className={cx('wrapper', { 'wrapper--dark': isDarkTheme })}>
       <div className={cx('wrapper__container')}>
         <AppHeader theme={isDarkTheme} themeToggler={themeToggler} />
-        <Filters isDarkTheme={isDarkTheme} />
+        <Filters />
         {
           isLoading
             ? <div>Загрузка...</div>
