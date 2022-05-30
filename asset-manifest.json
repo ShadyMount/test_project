@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/test_project/static/css/main.0f3430c5.css",
-    "main.js": "/test_project/static/js/main.2eb24060.js",
+    "main.css": "/test_project/static/css/main.c3877d55.css",
+    "main.js": "/test_project/static/js/main.17d5955b.js",
     "static/media/ThemeSwitcherDark.svg": "/test_project/static/media/ThemeSwitcherDark.403f581a5acb220ed1371178ff780034.svg",
     "static/media/ThemeSwitcherLight.svg": "/test_project/static/media/ThemeSwitcherLight.7efac3cbec09ed1764a502709e1ae415.svg",
     "static/media/Logo.svg": "/test_project/static/media/Logo.e019148907a2c5ebd43ea31cab238e1e.svg",
@@ -12,11 +12,11 @@
     "static/media/arrowL.svg": "/test_project/static/media/arrowL.cd23a3815f9e419980d81ff394edaac6.svg",
     "static/media/arrowR.svg": "/test_project/static/media/arrowR.15a2398ae98f5be784df280a707b6d3b.svg",
     "static/media/selectArrow.svg": "/test_project/static/media/selectArrow.e857798522b0dfc8f3430ad40052fcaf.svg",
-    "main.0f3430c5.css.map": "/test_project/static/css/main.0f3430c5.css.map",
-    "main.2eb24060.js.map": "/test_project/static/js/main.2eb24060.js.map"
+    "main.c3877d55.css.map": "/test_project/static/css/main.c3877d55.css.map",
+    "main.17d5955b.js.map": "/test_project/static/js/main.17d5955b.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f3430c5.css",
-    "static/js/main.2eb24060.js"
+    "static/css/main.c3877d55.css",
+    "static/js/main.17d5955b.js"
   ]
 }
