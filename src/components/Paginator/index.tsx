@@ -7,12 +7,13 @@ import styles from './Paginator.module.scss';
 
 const cx = cn.bind(styles);
 
-export interface PaginatorProps {
-  theme: boolean
-}
+// export interface PaginatorProps {
+//   theme: boolean
+// }
 
-const Paginator = ({ theme }: PaginatorProps) => {
-  const { currentPage, pagesAmount } = useAppSelector((state) => state.settingsReducer);
+const Paginator = () => {
+  // eslint-disable-next-line max-len
+  const { currentPage, pagesAmount, isDarkTheme } = useAppSelector((state) => state.settingsReducer);
   const dispatch = useAppDispatch();
 
   return (
@@ -21,7 +22,7 @@ const Paginator = ({ theme }: PaginatorProps) => {
         currentPage={Number(currentPage)}
         onChange={(page) => dispatch(settingsSlice.actions.setCurrentPage(page))}
         pagesAmount={Number(pagesAmount)}
-        isDarkTheme={theme}
+        isDarkTheme={isDarkTheme}
       />
     </div>
   );

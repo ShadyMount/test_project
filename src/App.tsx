@@ -43,7 +43,7 @@ const App: FC = () => {
             ? <div>Загрузка...</div>
             : <Items />
         }
-        <Paginator theme={isDarkTheme} />
+        <Paginator />
       </div>
     </div>
   );
