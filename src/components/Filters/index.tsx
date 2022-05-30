@@ -12,6 +12,7 @@ import Range from '../ui/filters/Range';
 import Select from '../ui/filters/Select';
 
 import styles from './Filters.module.scss';
+import { IAuthor } from '../../types/types';
 
 const cx = cn.bind(styles);
 
@@ -34,10 +35,10 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
   const locationsArr = locations.map((e) => ({ id: e.id, name: e.location }));
 
   const [isRangeClosed, setIsRangeClosed] = useState(true);
-  const [isRangeChanged, setIsRangeChanged] = useState(false);
+  const [isFiltersChanged, setIsFiltersChanged] = useState(false);
 
   const getData = useCallback(() => {
-    if (isRangeClosed && isRangeChanged) {
+    if (isRangeClosed && isFiltersChanged) {
       dispatch(getPaintings({
         q: name,
         authorId: author?.id,
@@ -47,11 +48,11 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
         _page: currentPage,
         _limit: pageSize,
       }));
-      setIsRangeChanged(false);
+      setIsFiltersChanged(false);
     }
   }, [dispatch, name, author,
     location, createdFrom, createdBefore,
-    isRangeClosed, currentPage, pageSize, isRangeChanged]);
+    isRangeClosed, currentPage, pageSize, isFiltersChanged]);
 
   const onChangeNameHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.value !== name) {
@@ -59,14 +60,50 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
     }
   };
 
+  const onChangeAuthorHandler = (auth:IAuthor) => {
+    if (auth !== author) {
+      dispatch(setAuthor(auth));
+      setIsFiltersChanged(true);
+    }
+  };
+
+  const onChangeLocationHandler = (loc: any) => {
+    if (loc.id !== location?.id) {
+      dispatch(setLocation({ id: loc.id, location: loc.name }));
+      setIsFiltersChanged(true);
+    }
+  };
+
   const onChangeCreatedFromHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    dispatch(setCreatedFrom(e.target.value));
-    setIsRangeChanged(true);
+    if (e.target.value !== createdFrom) {
+      dispatch(setCreatedFrom(e.target.value));
+      setIsFiltersChanged(true);
+    }
   };
 
   const onChangeCreatedBeforeHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    dispatch(setCreatedBefore(e.target.value));
-    setIsRangeChanged(true);
+    if (e.target.value !== createdBefore) {
+      dispatch(setCreatedBefore(e.target.value));
+      setIsFiltersChanged(true);
+    }
+  };
+
+  const onAuthorCrossClickHandler = () => {
+    dispatch(setAuthor(null));
+    setIsFiltersChanged(true);
+  };
+
+  const onLocationCrossClickHandler = () => {
+    dispatch(setLocation(null));
+    setIsFiltersChanged(true);
+  };
+
+  const onCloseRangeHandler = () => {
+    setIsRangeClosed(true);
+  };
+
+  const onOpenRangeHandler = () => {
+    setIsRangeClosed(false);
   };
 
   useEffect(() => {
@@ -86,27 +123,27 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
       <Select
         isDarkTheme={isDarkTheme}
         disabled={false}
-        onChange={(auth) => dispatch(setAuthor(auth))}
+        onChange={onChangeAuthorHandler}
         options={authors}
         value={author?.name}
         placeHolder="Author"
-        onCrossClicked={() => dispatch(setAuthor(null))}
+        onCrossClicked={onAuthorCrossClickHandler}
       />
       <Select
         isDarkTheme={isDarkTheme}
         disabled={false}
-        onChange={(loc) => dispatch(setLocation({ id: loc.id, location: loc.name }))}
+        onChange={onChangeLocationHandler}
         options={locationsArr}
         value={location?.location}
         placeHolder="Location"
-        onCrossClicked={() => dispatch(setLocation(null))}
+        onCrossClicked={onLocationCrossClickHandler}
       />
 
       <Range
         isDarkTheme={isDarkTheme}
         title="Created"
-        onClose={() => setIsRangeClosed(true)}
-        onOpen={() => setIsRangeClosed(false)}
+        onClose={onCloseRangeHandler}
+        onOpen={onOpenRangeHandler}
       >
         <div className={cx('filters__range-parent')}>
           <Input
