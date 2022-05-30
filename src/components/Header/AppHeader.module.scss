@@ -1,0 +1,26 @@
+.header {
+    height: 134px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+        border-radius: 30px;
+        &:hover {
+            background-color: aliceblue;
+            transition: background-color 0.5s ease;
+        }
+    }
+
+    &__themeToggler {
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        height: 114px;
+    }
+
+}

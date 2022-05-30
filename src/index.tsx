@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
@@ -8,10 +9,10 @@ import { setupStore } from './store';
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
-const store = setupStore()
+const store = setupStore();
 
 root.render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-)
+  <Provider store={store}>
+    <App />
+  </Provider>,
+);

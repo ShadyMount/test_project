@@ -1,11 +1,9 @@
+/* eslint-disable react/require-default-props */
 import { FC, useRef, useState } from 'react';
 import cn from 'classnames/bind';
 import Arrow from '../Arrow';
 import styles from './Range.module.scss';
 import useOutsideClick from '../hooks/useOutSideHook';
-
-
-
 
 const cx = cn.bind(styles);
 
@@ -27,13 +25,15 @@ export interface IRange {
   title: string
 }
 
-const Range: FC<IRange> = ({ children, isDarkTheme, className, onClose, onOpen, title }) => {
+const Range: FC<IRange> = ({
+  children, isDarkTheme, className, onClose, onOpen, title,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ref = useRef(null);
 
   const openMenu = () => {
     setIsOpen(true);
-    onOpen()
+    onOpen();
   };
 
   const hideMenu = () => {
@@ -48,20 +48,22 @@ const Range: FC<IRange> = ({ children, isDarkTheme, className, onClose, onOpen, 
       ref={ref}
       className={cx(className, 'Range', {
         'Range--open': isOpen,
-        'Range--dark': isDarkTheme
+        'Range--dark': isDarkTheme,
       })}
       aria-hidden="true"
-      onClick={isOpen ? hideMenu : openMenu}>
+      onClick={isOpen ? hideMenu : openMenu}
+    >
       <span className={cx('Range__title')}>{title}</span>
       <Arrow className={cx('Range__arrow')} isOpen={isOpen} isDarkTheme={isDarkTheme} />
       {isOpen && (
         <div
           className={cx('Range__сontainer', {
             'Range__сontainer--open': isOpen,
-            'Range__сontainer--dark': isDarkTheme
+            'Range__сontainer--dark': isDarkTheme,
           })}
           onClick={(e) => e.stopPropagation()}
-          aria-hidden="true">
+          aria-hidden="true"
+        >
             {children}
         </div>
       )}

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { FC, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames/bind';
 import styles from './PaginationPage.module.scss';
@@ -14,9 +15,9 @@ const PaginationPage: FC<PaginationPageProps> = ({ isDarkTheme, className, ...ot
     className={cx(
       'PaginationPage',
       {
-        'PaginationPage--dark': isDarkTheme
+        'PaginationPage--dark': isDarkTheme,
       },
-      className
+      className,
     )}
     {...other}
   />

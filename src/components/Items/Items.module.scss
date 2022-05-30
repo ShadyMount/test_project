@@ -1,0 +1,45 @@
+.items {
+    display: flex;
+    gap: 20px;
+    flex-flow: row wrap;
+    min-height: 45vh;
+    margin-top: 45px;
+    justify-content: center;
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-radius: 20px;
+        position: relative;
+    }
+
+    @media (min-width:1366px) {
+        & > div {
+            width: calc((100% - 40px) / 3);
+            aspect-ratio: 360 / 275;
+        }
+    }
+
+    @media (max-width:1365.98px) {
+        & > div {
+            width: calc((100% - 40px) / 3);
+            aspect-ratio: 300 / 230;
+        }
+    }
+
+    @media (max-width: 1023.98px) {
+        & > div {
+            width: calc((100% - 20px) / 2);
+            aspect-ratio: 340 / 249;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        & > div {
+            width: 100%;
+            aspect-ratio: 280 / 205;
+        }
+    }
+
+}

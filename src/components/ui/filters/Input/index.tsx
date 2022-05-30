@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import cn from 'classnames/bind';
 import { FC, InputHTMLAttributes } from 'react';
 import styles from './Input.module.scss';
@@ -14,7 +15,7 @@ export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
 const Input: FC<IInput> = ({ isDarkTheme, className, ...other }) => (
   <input
     className={cx(className, 'Input', {
-      'Input--dark': isDarkTheme
+      'Input--dark': isDarkTheme,
     })}
     {...other}
   />

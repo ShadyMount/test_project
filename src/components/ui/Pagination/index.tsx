@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/require-default-props */
 import { FC } from 'react';
 import cn from 'classnames/bind';
 import PaginationPageWithActive from './PaginationPageWithActive';
@@ -39,21 +41,21 @@ const Pagination: FC<TPagination> = ({
   isDarkTheme = false,
   pagesAmount,
   className,
-  onChange
+  onChange,
 }) => {
   const slicedPagesArray = usePaginationSlice({
     current: currentPage,
-    amount: pagesAmount
+    amount: pagesAmount,
   });
 
   const leftArrowProps = {
     isDarkTheme,
-    disabled: currentPage < 2
+    disabled: currentPage < 2,
   };
 
   const rightArrowProps = {
     isDarkTheme,
-    disabled: currentPage >= pagesAmount
+    disabled: currentPage >= pagesAmount,
   };
 
   return (
@@ -70,7 +72,8 @@ const Pagination: FC<TPagination> = ({
           isDarkTheme={isDarkTheme}
           onClick={() => onChange(el)}
           isActive={currentPage === el}
-          key={el}>
+          key={el}
+        >
           {el}
         </PaginationPageWithActive>
       ))}

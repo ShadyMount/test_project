@@ -1,52 +1,52 @@
-import { useCallback, useEffect } from "react";
-import { getPaintings } from "./store/actions/getPaintings";
-import { useAppDispatch, useAppSelector } from "./store/hooks";
-import './App.css'
-import { getLocations } from "./store/actions/getLocations";
-import { getAuthors } from "./store/actions/getAuthors";
-import AppHeader from "./components/Header/AppHeader";
-import Filters from "./components/Filters/Filters";
-import Items from "./components/Items/Items";
-import Paginator from "./components/Paginator/Paginator";
-import { settingsSlice } from "./store/slices/settingsSlice";
+import { FC, useCallback, useEffect } from 'react';
+import cn from 'classnames/bind';
+import styles from './App.module.scss';
 
+import { settingsSlice } from './store/slices/settingsSlice';
+import { getPaintings } from './store/actions/getPaintings';
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import getLocations from './store/actions/getLocations';
+import getAuthors from './store/actions/getAuthors';
 
+import {
+  AppHeader, Filters, Items, Paginator,
+} from './components';
 
+const cx = cn.bind(styles);
 
-
-function App() {
-  const dispatch = useAppDispatch()
-const {isDarkTheme} = useAppSelector(state => state.settingsReducer)
+const App: FC = () => {
+  const dispatch = useAppDispatch();
+  const { isDarkTheme } = useAppSelector((state) => state.settingsReducer);
+  const { isLoading } = useAppSelector((state) => state.paintingsReducer);
 
   const initApp = useCallback(() => {
-    dispatch(getPaintings({})) //убрать объект пропсов
-    dispatch(getLocations())
-    dispatch(getAuthors())
-  } , [dispatch]) 
- 
-const themeToggler = () => {
-  dispatch(settingsSlice.actions.setIsDarkTheme(!isDarkTheme))
-}
+    dispatch(getPaintings({}));
+    dispatch(getLocations());
+    dispatch(getAuthors());
+  }, [dispatch]);
 
-  // const [theme, themeToggler] = useDarkMode()
-  // let isDarkTheme =  theme === "dark" ? true : false
+  const themeToggler = () => {
+    dispatch(settingsSlice.actions.setIsDarkTheme(!isDarkTheme));
+  };
 
   useEffect(() => {
-    initApp()
-  }, [initApp])
-
+    initApp();
+  }, [initApp]);
 
   return (
-    <div className={`wrapper ${isDarkTheme && 'wrapper__dark'}`}>
-      <div className="container">
-        <AppHeader theme={isDarkTheme} themeToggler={themeToggler}/>
-        <Filters isDarkTheme={isDarkTheme}/>
-        <Items />
-        <Paginator theme={isDarkTheme}/>
+    <div className={cx('wrapper', { 'wrapper--dark': isDarkTheme })}>
+      <div className={cx('wrapper__container')}>
+        <AppHeader theme={isDarkTheme} themeToggler={themeToggler} />
+        <Filters isDarkTheme={isDarkTheme} />
+        {
+          isLoading
+            ? <div>Загрузка...</div>
+            : <Items />
+        }
+        <Paginator theme={isDarkTheme} />
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 export default App;

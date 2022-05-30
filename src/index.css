@@ -32,17 +32,10 @@ dd {
 
 /* Выставляем основные настройки по-умолчанию для body */
 body {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 100%; */
   overflow: scroll;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1;
-  /* background-color: #5a8185; */
-  
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/

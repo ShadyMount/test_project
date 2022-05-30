@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { FC } from 'react';
 import cn from 'classnames/bind';
 import { ReactComponent as SelectArrow } from '../../images/selectArrow.svg';
@@ -15,8 +16,9 @@ const Arrow: FC<TArrow> = ({ isOpen, isDarkTheme, className }) => (
   <div
     className={cx(className, {
       Arrow__opened: isOpen,
-      Arrow__dark: isDarkTheme
-    })}>
+      Arrow__dark: isDarkTheme,
+    })}
+  >
     <SelectArrow />
   </div>
 );
