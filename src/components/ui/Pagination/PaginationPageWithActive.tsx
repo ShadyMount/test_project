@@ -13,8 +13,8 @@ const PaginationPageWithActive: FC<IProps> = ({
   <PaginationPage
     isDarkTheme={isDarkTheme}
     className={cn(className, {
-      'pagination-page-With-active': isActive,
-      'pagination-page-With-active_dark': isDarkTheme && isActive,
+      'pagination-page-with-active': isActive,
+      'pagination-page-with-active_dark': isDarkTheme && isActive,
     })}
     {...other}
   />
