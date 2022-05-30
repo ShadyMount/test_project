@@ -14,8 +14,8 @@ export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: FC<IInput> = ({ isDarkTheme, className, ...other }) => (
   <input
-    className={cx(className, 'Input', {
-      'Input--dark': isDarkTheme,
+    className={cx(className, 'input', {
+      'input_dark': isDarkTheme,
     })}
     {...other}
   />

@@ -21,7 +21,7 @@ const ItemCard = ({
       <img
         onLoad={() => setIsLoaded(true)}
         src={imageUrl}
-        className={cx('item__image', { 'item__image--visible': isLoaded })}
+        className={cx('item__image', { 'item__image_visible': isLoaded })}
         alt={name}
       />
       {!isLoaded && <div className={cx('item__loader')} />}

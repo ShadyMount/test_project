@@ -1,4 +1,4 @@
-.Select {
+.select {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,11 +12,11 @@
   transition: background 0.5s ease;
 
   cursor: pointer;
-  &--open {
+  &_open {
     border-radius: 8px 8px 0 0;
     border-bottom: none
   }
-  &--dark {
+  &_dark {
     border: 1px solid white;
     color: white;
     background: black;
@@ -32,7 +32,7 @@
     white-space: nowrap;
     border-bottom: none
   }
-  &__optionContainer {
+  &__option-container {
     display: block;
     position: absolute;
     width: calc(100% + 2px);
@@ -45,14 +45,14 @@
     list-style: none;
     z-index: 1;
     background: white;
-    &--open {
+    &_open {
       border-radius: 0 0 8px 8px;
       border-top: none;  
 
 
       max-height: 300px;
     }
-    &--dark {
+    &_dark {
       border: 1px solid white;
       background: #000;
     }
@@ -72,7 +72,7 @@
       background: black;
       color: white;
     }
-    &--dark {
+    &_dark {
       &:hover {
         background: white;
         color: black;
@@ -82,7 +82,7 @@
       border-radius: 0 0 8px 8px;
     }
   }
-  &__optionName {
+  &__option-name {
     word-break: break-word;
   }
   &__arrow {
@@ -101,7 +101,7 @@
   }
 }
 
-.Select__optionContainer__stick:before{
+.Select__option-container__stick:before{
     position:absolute;
     top:-2px;
     left: 1px;

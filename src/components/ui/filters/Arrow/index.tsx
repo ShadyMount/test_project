@@ -15,8 +15,8 @@ const cx = cn.bind(styles);
 const Arrow: FC<TArrow> = ({ isOpen, isDarkTheme, className }) => (
   <div
     className={cx(className, {
-      Arrow__opened: isOpen,
-      Arrow__dark: isDarkTheme,
+      'arrow_opened': isOpen,
+      'arrow_dark': isDarkTheme,
     })}
   >
     <SelectArrow />

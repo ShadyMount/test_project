@@ -68,38 +68,38 @@ const Select: FC<ISelect> = ({
   return (
     <div
       ref={isOpen ? ref : null}
-      className={cx(className, 'Select', {
-        'Select--open': isOpen,
-        'Select--dark': isDarkTheme,
+      className={cx(className, 'select', {
+        'select_open': isOpen,
+        'select_dark': isDarkTheme,
       })}
       onClick={!disabled ? toggleOpen : () => {}}
       aria-hidden="true"
     >
-      <span className={cx('Select__title')}>{value || placeHolder}</span>
-      <Cross isSelected={!!(value && value !== 'Author')} onClick={onCrossClicked} className={cx('Select__cross')} isDarkTheme={isDarkTheme} />
-      <Arrow isOpen={isOpen} className={cx('Select__arrow')} isDarkTheme={isDarkTheme} />
+      <span className={cx('select__title')}>{value || placeHolder}</span>
+      <Cross isSelected={!!(value && value !== 'Author')} onClick={onCrossClicked} className={cx('select__cross')} isDarkTheme={isDarkTheme} />
+      <Arrow isOpen={isOpen} className={cx('select__arrow')} isDarkTheme={isDarkTheme} />
       {isOpen && options && (
 
         <ul
-          className={cx('Select__optionContainer', {
-            'Select__optionContainer--open': isOpen,
-            'Select__optionContainer--dark': isDarkTheme,
+          className={cx('select__option-container', {
+            'select__option-container_open': isOpen,
+            'select__option-container_dark': isDarkTheme,
           })}
         >
-          <div className={cx('Select__optionContainer__stick')} />
+          <div className={cx('select__option-container__stick')} />
 
           <SimpleBar style={{ maxHeight: 'inherit' }}>
 
             {options.map((option) => (
               <li
                 onClick={() => onChange(option)}
-                className={cx('Select__option', {
-                  'Select__option--dark': isDarkTheme,
+                className={cx('select__option', {
+                  'select__option_dark': isDarkTheme,
                 })}
                 key={option.id}
                 aria-hidden="true"
               >
-                <p className={cx('Select__optionName')}>{option.name}</p>
+                <p className={cx('select__option-name')}>{option.name}</p>
               </li>
             ))}
           </SimpleBar>

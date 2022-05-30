@@ -46,20 +46,20 @@ const Range: FC<IRange> = ({
   return (
     <div
       ref={ref}
-      className={cx(className, 'Range', {
-        'Range--open': isOpen,
-        'Range--dark': isDarkTheme,
+      className={cx(className, 'range', {
+        'range_open': isOpen,
+        'range_dark': isDarkTheme,
       })}
       aria-hidden="true"
       onClick={isOpen ? hideMenu : openMenu}
     >
-      <span className={cx('Range__title')}>{title}</span>
-      <Arrow className={cx('Range__arrow')} isOpen={isOpen} isDarkTheme={isDarkTheme} />
+      <span className={cx('range__title')}>{title}</span>
+      <Arrow className={cx('range__arrow')} isOpen={isOpen} isDarkTheme={isDarkTheme} />
       {isOpen && (
         <div
-          className={cx('Range__сontainer', {
-            'Range__сontainer--open': isOpen,
-            'Range__сontainer--dark': isDarkTheme,
+          className={cx('range__сontainer', {
+            'range__сontainer_open': isOpen,
+            'range__сontainer_dark': isDarkTheme,
           })}
           onClick={(e) => e.stopPropagation()}
           aria-hidden="true"

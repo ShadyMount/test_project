@@ -1,4 +1,4 @@
-.PaginationPage {
+.pagination-page {
     width: 40px;
     height: 41px;
     display: flex;
@@ -36,7 +36,7 @@
         background: inherit;
       }
     }
-    &--dark {
+    &_dark {
       border: 1px solid white;
       color: white;
       border-right: none;
@@ -51,7 +51,7 @@
         color: #4c4c4c;
       }
     }
-    &.PaginationPageWithActive {
+    &.pagination-page-With-active {
       background: black;
       color: white;
       border-color: black;
@@ -61,7 +61,7 @@
         color: white;
         border-color: black;
       }
-      &--dark {
+      &_dark {
         background: white;
         color: black;
         border-color: white;

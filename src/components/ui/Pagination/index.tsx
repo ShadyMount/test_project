@@ -59,7 +59,7 @@ const Pagination: FC<TPagination> = ({
   };
 
   return (
-    <div className={cx(className, 'Pagination')}>
+    <div className={cx(className, 'pagination')}>
       <PaginationPage {...leftArrowProps} onClick={() => onChange(1)}>
         <DoubleArrowL />
       </PaginationPage>

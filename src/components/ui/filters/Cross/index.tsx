@@ -20,8 +20,8 @@ const Cross: FC<TCross> = ({
 }) => (
   <div
     className={cx(className, {
-      Cross__selected: isSelected,
-      Cross__dark: isDarkTheme,
+      'cross_selected': isSelected,
+      'cross_dark': isDarkTheme,
     })}
     onClick={onClick}
   >

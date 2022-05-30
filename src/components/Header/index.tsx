@@ -14,7 +14,7 @@ export interface HeaderProps {
 const AppHeader = ({ theme, themeToggler }: HeaderProps) => (
   <div className={cx('header')}>
     <Logo className={cx('header__logo')} />
-    <div className={cx('header__themeToggler')}>
+    <div className={cx('header__theme-toggler')}>
       {
         theme
           ? <ThemeSwitcherLight onClick={themeToggler} />

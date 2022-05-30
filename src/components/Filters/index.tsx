@@ -1,4 +1,6 @@
-import react, { FC } from 'react';
+import {
+  FC, useCallback, useEffect, useState,
+} from 'react';
 import cn from 'classnames/bind';
 
 import { settingsSlice } from '../../store/slices/settingsSlice';
@@ -31,10 +33,10 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
 
   const locationsArr = locations.map((e) => ({ id: e.id, name: e.location }));
 
-  const [isRangeClosed, setIsRangeClosed] = react.useState(true);
-  const [isRangeChanged, setIsRangeChanged] = react.useState(false);
+  const [isRangeClosed, setIsRangeClosed] = useState(true);
+  const [isRangeChanged, setIsRangeChanged] = useState(false);
 
-  const getData = react.useCallback(() => {
+  const getData = useCallback(() => {
     if (isRangeClosed && isRangeChanged) {
       dispatch(getPaintings({
         q: name,
@@ -49,7 +51,7 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
     }
   }, [dispatch, name, author,
     location, createdFrom, createdBefore,
-    isRangeClosed, currentPage, pageSize]);
+    isRangeClosed, currentPage, pageSize, isRangeChanged]);
 
   const onChangeNameHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.value !== name) {
@@ -67,7 +69,7 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
     setIsRangeChanged(true);
   };
 
-  react.useEffect(() => {
+  useEffect(() => {
     getData();
   }, [getData]);
 
@@ -106,17 +108,17 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
         onClose={() => setIsRangeClosed(true)}
         onOpen={() => setIsRangeClosed(false)}
       >
-        <div className={cx('filters__rangeParent')}>
+        <div className={cx('filters__range-parent')}>
           <Input
-            className={cx('filters__rangeChildren')}
+            className={cx('filters__range-children')}
             isDarkTheme={isDarkTheme}
             placeholder="from"
             value={createdFrom}
             onChange={onChangeCreatedFromHandler}
           />
-          <div className={cx('filters__rangeStick', { 'filters__rangeStick--dark': isDarkTheme })} />
+          <div className={cx('filters__range-stick', { 'filters__range-stick_dark': isDarkTheme })} />
           <Input
-            className={cx('filters__rangeChildren')}
+            className={cx('filters__range-children')}
             isDarkTheme={isDarkTheme}
             placeholder="before"
             value={createdBefore}
@@ -129,4 +131,4 @@ const Filters:FC<IFilters> = ({ isDarkTheme }) => {
   );
 };
 
-export default react.memo(Filters);
+export default Filters;

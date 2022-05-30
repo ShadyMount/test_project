@@ -4,7 +4,6 @@
         "es2021": true
     },
     "extends": [
-        "react-app",
         "airbnb",
         "airbnb-typescript",
         "airbnb/hooks"
@@ -34,6 +33,7 @@
                 "namedComponents": "arrow-function",
                 "unnamedComponents": "arrow-function"
             }
-        ]
+        ],
+        "quote-props": ["error", "consistent"]
     }
 }
